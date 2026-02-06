@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
 const Layout = ({ children }) => {
   const { scrollYProgress } = useScroll();
@@ -12,14 +13,14 @@ const Layout = ({ children }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
 
-      {/* Parallax Background Elements */}
+      {/* Background Elements - Colors now controlled by CSS variables */}
       <motion.div style={{
         position: 'fixed',
         top: '10%',
         left: '5%',
         width: '300px',
         height: '300px',
-        background: 'radial-gradient(circle, rgba(56, 189, 248, 0.2) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, var(--color-primary-transparent, rgba(245, 183, 39, 0.2)) 0%, transparent 70%)',
         zIndex: -1,
         y: y1,
         rotate
@@ -31,7 +32,7 @@ const Layout = ({ children }) => {
         right: '5%',
         width: '400px',
         height: '400px',
-        background: 'radial-gradient(circle, rgba(192, 132, 252, 0.15) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, var(--color-secondary-transparent, rgba(14, 165, 233, 0.15)) 0%, transparent 70%)',
         zIndex: -1,
         y: y2,
       }} />
@@ -48,14 +49,16 @@ const Layout = ({ children }) => {
           <h2 style={{ fontSize: '1.5rem', margin: 0 }}>
             Willard<span style={{ color: 'var(--color-primary)' }}>.Dev</span>
           </h2>
-          <nav>
-            <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+            <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', margin: 0, padding: 0 }}>
               <li><a href="#profile">Perfil</a></li>
               <li><a href="#experience">Experiencia</a></li>
+              <li><a href="#methodology">Metodología</a></li>
               <li><a href="#skills">Habilidades</a></li>
               <li><a href="#education">Educación</a></li>
               <li><a href="#contact">Contacto</a></li>
             </ul>
+            <ThemeToggle />
           </nav>
         </div>
         {/* Scroll Progress Bar */}

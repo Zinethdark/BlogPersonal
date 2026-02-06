@@ -29,11 +29,13 @@ const Contact = () => {
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <div className="glass-panel" style={{ padding: '0.8rem', borderRadius: '50%' }}> <Phone color="var(--color-primary)" /> </div>
-                                <span>+58 412 600 3425</span>
+                                <a href="https://wa.link/bpjuid" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>+584126003425</a>
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <div className="glass-panel" style={{ padding: '0.8rem', borderRadius: '50%' }}> <MapPin color="var(--color-primary)" /> </div>
-                                <span>Caracas, Venezuela (Av. San Martin)</span>
+                                <a href="https://maps.app.goo.gl/dzJGpDGMmnb6Nbpu5" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>Caracas, Venezuela (Av. San Martin)</a>
+
+
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                                 <div className="glass-panel" style={{ padding: '0.8rem', borderRadius: '50%' }}> <Linkedin color="var(--color-primary)" /> </div>

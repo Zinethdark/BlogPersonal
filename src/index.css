@@ -3,22 +3,50 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --color-bg: #0f172a;
-  --color-surface: #1e293b;
+  /* Default Theme (Dark - Black & Gold) */
+  --color-bg: #050505;
+  /* Blackish */
+  --color-surface: #121212;
   --color-text-main: #f8fafc;
   --color-text-muted: #94a3b8;
-  --color-primary: #38bdf8;
-  --color-secondary: #818cf8;
-  --color-accent: #c084fc;
+  --color-primary: #F5B727;
+  /* Gold/Yellow requested */
+  --color-secondary: #FFD700;
+  /* Lighter Gold */
+  --color-accent: #ffffff;
+  /* White contrast */
 
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(18, 18, 18, 0.7);
+  --glass-border: rgba(245, 183, 39, 0.15);
+  /* Gold tint border */
   --glass-blur: 12px;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+
   color-scheme: dark;
+}
+
+[data-theme='light'] {
+  /* Light Theme (Tech - White/Blue/Cyan) */
+  --color-bg: #f0f9ff;
+  --color-surface: #ffffff;
+  --color-text-main: #0f172a;
+  --color-text-muted: #475569;
+  --color-primary: #0284c7;
+  /* Sky Blue */
+  --color-secondary: #0ea5e9;
+  /* Light Blue */
+  --color-accent: #6366f1;
+  /* Indigo */
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(14, 165, 233, 0.2);
+  --glass-blur: 12px;
+
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+
+  color-scheme: light;
 }
 
 * {
@@ -32,11 +60,18 @@ body {
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text-main);
-  background-image: 
-    radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.15) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(192, 132, 252, 0.1) 0px, transparent 50%);
+  background-image:
+    radial-gradient(at 0% 0%, var(--color-primary) 0px, transparent 40%),
+    radial-gradient(at 100% 100%, var(--color-secondary) 0px, transparent 40%);
+  background-size: 100% 100%;
   background-attachment: fixed;
+  /* Lower opacity for the gradient so it's subtle */
+  background-blend-mode: overlay;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+/* Ensure gradient opacity is handled via pseudo-element or blend for better control if needed, 
+   but blend-mode works well for dark/light switching usually. */
 
 a {
   color: var(--color-primary);
@@ -48,7 +83,10 @@ a:hover {
   color: var(--color-secondary);
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: var(--color-text-main);
   font-weight: 700;
   line-height: 1.2;
@@ -76,6 +114,7 @@ button {
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: var(--shadow-lg);
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .flex-center {
@@ -92,7 +131,8 @@ button {
   font-size: 2.5rem;
   margin-bottom: 3rem;
   text-align: center;
-  background: linear-gradient(to right, var(--color-primary), var(--color-accent));
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
